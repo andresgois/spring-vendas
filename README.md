@@ -85,6 +85,74 @@ graph TD;
 )
 ```
 
+### Injeção de Dependências
+- No spring existe o *@Autowired* que faz a injeção de depedência automático.
+- Existe algumas formas de usar a importação automática
+> Direto na variável, sem a necessidade de um construtor
+
+```
+@Autowired
+private ClientRepository repository;
+
+public void saveClient(Client client) {
+    verifyClient(client);
+    this.repository.persistence(client);
+}
+```
+
+> Importação no construtor
+
+```
+private ClientRepository repository;
+
+@Autowired
+public ClientServices(ClientRepository repository) {
+    this.repository = repository;
+}
+
+public void saveClient(Client client) {
+    verifyClient(client);
+    this.repository.persistence(client);
+}
+```
+
+> Exmplo sem o Autowired
+
+```
+private ClientRepository repository;
+
+public ClientServices(ClientRepository repository) {
+    this.repository = repository;
+}
+
+public void saveClient(Client client) {
+    verifyClient(client);
+    ClientRepository clientRepository = new ClientRepository();
+    clientRepository.persistence(client);
+}
+
+```
+
+### Configuração externalizada: Application Properties
+> Exemplo
+- Nome da aplicação
+- Porta para rodar a aplicação
+- Raiz da aplicação
+
+```
+application.name=Sistema de vendas
+
+server.port=8081
+server.servlet.context-path=/sistema-vendas
+```
+
+### Configuração externalizada: Application Properties
+- Funciona como um .env, só que com uma gama de funcionalidades
+- Várias configurações customizadas
+- [Application Properties](https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html)
+
+### Trabalhando com multiplos ambientes e profiles
+
 ## Layout ou Deploy da Aplicação
 
  
