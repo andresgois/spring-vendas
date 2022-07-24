@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Application {
 
 	@Autowired
-	@Qualifier("MyConfiguration")
+	@Qualifier("myTestConfiguration")
 	private String myConfiguration;
 	
 	@GetMapping("/")

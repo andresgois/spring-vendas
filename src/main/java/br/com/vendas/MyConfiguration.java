@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MyConfiguration {
 
-	@Bean(name = "MyConfiguration")
-	public String MyConfiguration() {
+	@Bean(name = "myTestConfiguration")
+	public String myTestConfiguration() {
 		return "Sistema de Vendas";
 	}
 }
