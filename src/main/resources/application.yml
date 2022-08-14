@@ -1,0 +1,7 @@
+server:
+  servlet:
+    context-path: /sistema-vendas
+  port: '8081'
+spring:
+  profiles:
+    active: dev
