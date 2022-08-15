@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package br.com.vendas;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,4 +31,3 @@ public class Application {
 	}
 
 }
->>>>>>> 32e045a3751e9a59a5fd2a325351d1cb44d7282b
