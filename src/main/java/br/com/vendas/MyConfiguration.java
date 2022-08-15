@@ -9,7 +9,7 @@ import br.com.vendas.Annotations.Dev;
 @Configuration
 @Dev
 public class MyConfiguration {
-
+    // Teste
     @Bean(name = "myTestConfiguration")
     public String myTestConfiguration() {
         return "Sistema de Vendas";
