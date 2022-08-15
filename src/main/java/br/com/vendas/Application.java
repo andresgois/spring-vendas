@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 //@ComponentScan(basePackages = ["br.com.vendas","br.com.vendas"])
 public class Application {
-
+    // teste amend
 	/*@Autowired
 	@Qualifier("myTestConfiguration")
 	private String myConfiguration;*/
