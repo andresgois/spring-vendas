@@ -224,15 +224,17 @@ Coloque um passo a passo para executar os testes
 
 ## SPRING DATA E ACESSO A DADOS
 
-### Configurar e conectar-se a um banco de dados
+#### Configurar e conectar-se a um banco de dados
+- pool de coneção **HikariCP**
+- [Datasource padrão](https://github.com/brettwooldridge/HikariCP)
 
-### Acessar bancos de dados em memória através do browser
+#### Acessar bancos de dados em memória através do browser
 
-### Utilizar SQL junto com o Spring JDBC para fazer operações 
+#### Utilizar SQL junto com o Spring JDBC para fazer operações 
 
-### Mapear entidades JPA e utilizar o EntityManager para realizar as operações de base de dados
+#### Mapear entidades JPA e utilizar o EntityManager para realizar as operações de base de dados
 
-### Trabalhar com JPA repositories
+#### Trabalhar com JPA repositories
 
 ### Fazer consultas utilizando Query Methods e @Query
 
