@@ -222,6 +222,28 @@ Coloque um passo a passo para executar os testes
 [code]
 ```
 
+## SPRING DATA E ACESSO A DADOS
+
+### Configurar e conectar-se a um banco de dados
+
+### Acessar bancos de dados em memória através do browser
+
+### Utilizar SQL junto com o Spring JDBC para fazer operações 
+
+### Mapear entidades JPA e utilizar o EntityManager para realizar as operações de base de dados
+
+### Trabalhar com JPA repositories
+
+### Fazer consultas utilizando Query Methods e @Query
+
+
+
+
+
+
+
+
+
 ## Casos de Uso
 
 Explique com mais detalhes como a sua aplicação poderia ser utilizada. O uso de **gifs** aqui seria bem interessante. 

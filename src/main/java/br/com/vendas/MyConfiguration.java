@@ -9,6 +9,7 @@ import br.com.vendas.Annotations.Dev;
 
 @Configuration
 @Dev
+//@Profile("dev")
 public class MyConfiguration {
 
     @Bean(name = "myTestConfiguration")

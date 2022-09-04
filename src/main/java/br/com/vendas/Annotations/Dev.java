@@ -11,8 +11,9 @@ import org.springframework.context.annotation.Profile;
 
 /**
  * Dev
+ * 2 primeiras tags obrigatórias para annotations
  */
-@Target(ElementType.TYPE)
+@Target(ElementType.TYPE)  // Só pode ser inserida para class
 @Retention(RetentionPolicy.RUNTIME)
 @Configuration
 @Profile("dev")
