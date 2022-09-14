@@ -1,5 +1,6 @@
 package br.com.vendas;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,14 +11,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.vendas.domain.entity.Cliente;
-import br.com.vendas.domain.repository.Clientes;
+import br.com.vendas.domain.entity.Produto;
+import br.com.vendas.domain.repository.ClientesRepository;
+import br.com.vendas.domain.repository.ProdutosRepository;
 
 @SpringBootApplication
 @RestController
 public class Application {
     
-    @Bean
-    public CommandLineRunner init(@Autowired Clientes clientes) {
+    /*@Bean
+    public CommandLineRunner init(@Autowired ClientesRepository clientes) {
         return args -> {
             System.out.println("========== Salva ==========");
             Cliente cliente = new Cliente();
@@ -40,7 +43,7 @@ public class Application {
             System.out.println("========== Busca ==========");
             clientes.buscarPorNome("Andrei").forEach(System.out::println);
             
-            /*System.out.println("========== Delete ==========");
+            System.out.println("========== Delete ==========");
             clientes.deleteCliente(1);
             
             todos = clientes.obterTodos();
@@ -50,7 +53,7 @@ public class Application {
             
             clientes.obterTodos().forEach( c -> {
                 clientes.deleteCliente(c);
-            });*/
+            });
             
             todos = clientes.obterTodos();
             if(todos.isEmpty()) {
@@ -59,6 +62,13 @@ public class Application {
                 todos.forEach(System.out::println); 
             }
                 
+        };
+    }*/
+    
+    @Bean
+    public CommandLineRunner prod(@Autowired ProdutosRepository pr) {
+        return args -> {
+           pr.save(new Produto("Chinela",  new BigDecimal(25.90)));
         };
     }
     
