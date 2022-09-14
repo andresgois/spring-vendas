@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import br.com.vendas.domain.entity.Cliente;
 
 @Repository
-public class Clientes {
+public class ClientesRepository {
     
     @Autowired
     private JdbcTemplate jdbcTemplate;
