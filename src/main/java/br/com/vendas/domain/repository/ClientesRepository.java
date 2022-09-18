@@ -3,7 +3,6 @@ package br.com.vendas.domain.repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -17,10 +16,10 @@ public class ClientesRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     
-    private static String INSERT = "INSERT INTO cliente (nome) VALUES (?)";
+    private static String INSERT     = "INSERT INTO cliente (nome) VALUES (?)";
     private static String SELECT_ALL = "SELECT * FROM cliente";
-    private static String UPDATE = "UPDATE cliente SET nome = ? WHERE id = ?";
-    private static String DELETE = "DELETE FROM cliente WHERE id = ?";
+    private static String UPDATE     = "UPDATE cliente SET nome = ? WHERE id = ?";
+    private static String DELETE     = "DELETE FROM cliente WHERE id = ?";
     
     public Cliente salvarCliente(Cliente cliente) {
         jdbcTemplate.update(INSERT, new Object[] {cliente.getNome()});
