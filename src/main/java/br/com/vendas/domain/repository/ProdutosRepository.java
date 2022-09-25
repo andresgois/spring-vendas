@@ -3,10 +3,8 @@ package br.com.vendas.domain.repository;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
-
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -32,6 +30,10 @@ public class ProdutosRepository {
     
     @Transactional
     public void remover(Produto p) {
+        if(!entityManager.contains(p)) {
+            // se não existir, ele sincroniza
+            p = entityManager.merge(p);
+        }
         entityManager.remove(p);
     }
     
@@ -41,17 +43,18 @@ public class ProdutosRepository {
         remover(p);
     }
     
-    @Transactional
-    public List<Produto> buscaPorNome(String nome) {
-        String jpql = "SELECT p FROM produto p WHERE p.nome LIKE :nome"; 
+    @Transactional(readOnly = true)
+    public List<Produto> buscaPorDescricao(String descricao) {
+        String jpql = "SELECT p FROM Produto p WHERE p.descricao LIKE :descricao"; 
         TypedQuery<Produto> query = entityManager.createQuery(jpql, Produto.class);
-        query.setParameter("nome", "%"+nome+"%");
+        query.setParameter("descricao", "%"+descricao+"%");
         return query.getResultList();
     }
     
-    @Transactional
-    public List<Produto> boterTodos() {
-        String nome = entityManager.createQuery("from produto", Produto.class);
-        return new Produto(nome, null)
+    @Transactional(readOnly = true)
+    public List<Produto> obterTodos() {
+        return entityManager
+                .createQuery("FROM Produto", Produto.class)
+                .getResultList();
     }
 };
