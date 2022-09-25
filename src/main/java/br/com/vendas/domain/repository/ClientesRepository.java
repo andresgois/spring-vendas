@@ -1,9 +1,7 @@
 package br.com.vendas.domain.repository;
 
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import br.com.vendas.domain.entity.Cliente;
 
 public interface ClientesRepository extends JpaRepository<Cliente, Integer>{

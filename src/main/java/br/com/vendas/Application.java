@@ -1,6 +1,5 @@
 package br.com.vendas;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,15 +7,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.RestController;
 
 import br.com.vendas.domain.entity.Cliente;
-import br.com.vendas.domain.entity.Produto;
 import br.com.vendas.domain.repository.ClientesRepository;
-import br.com.vendas.domain.repository.ProdutosRepository;
 
 @SpringBootApplication
-@RestController
 public class Application {
     
    /*@Bean
@@ -116,6 +111,7 @@ public class Application {
             cliente.setNome("Andre Gois");
             clientes.save(cliente);
             clientes.save(new Cliente("Andreia"));
+            
             System.out.println("========== Lista ==========");
             List<Cliente> todos = clientes.findAll();
             // método de referece do java 8
@@ -129,6 +125,7 @@ public class Application {
             
             todos = clientes.findAll();
             todos.forEach(System.out::println);
+            
             System.out.println("========== Busca ==========");
             clientes.findByNomeLike("Andrei").forEach(System.out::println);
             
