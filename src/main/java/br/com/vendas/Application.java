@@ -112,7 +112,10 @@ public class Application {
             clientes.save(cliente);
             clientes.save(new Cliente("Andreia"));
             
-            System.out.println("========== Lista ==========");
+            boolean existe = clientes.existsByNome("Andreia");
+            System.out.println("Existe um cliente com esse nome, Andreia? : "+existe);
+            
+            /*System.out.println("========== Lista ==========");
             List<Cliente> todos = clientes.findAll();
             // método de referece do java 8
             todos.forEach(System.out::println);
@@ -146,7 +149,7 @@ public class Application {
                 System.out.println("A Lista está vazia");
             }else {
                 todos.forEach(System.out::println); 
-            }
+            }*/
                 
         };
     }
