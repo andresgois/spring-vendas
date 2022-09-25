@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "produto")
 public class Produto {
@@ -24,6 +23,8 @@ public class Produto {
     
     @Column(name = "preco")
     private BigDecimal preco;
+    
+    public Produto() {}
     
     public Produto(String descricao, BigDecimal preco) {
         this.descricao = descricao;
@@ -52,5 +53,10 @@ public class Produto {
 
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
+    }
+    
+    @Override
+    public String toString() {
+        return "id: "+ id+ " - Descrição: "+ descricao+" Preço: R$ "+preco;
     }
 }
