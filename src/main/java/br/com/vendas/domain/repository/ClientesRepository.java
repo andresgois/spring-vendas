@@ -29,6 +29,9 @@ public interface ClientesRepository extends JpaRepository<Cliente, Integer>{
     @Modifying
     void deleteByName(String nome);
     
+    @Query(value = "select c from cliente c left join fetch c.pedidos p where c.id = :id")
+    Cliente findClienteFetchPedidos( @Param("id") Integer id);
+    
     /*@Autowired
     private JdbcTemplate jdbcTemplate;
     

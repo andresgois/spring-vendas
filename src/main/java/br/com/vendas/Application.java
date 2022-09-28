@@ -1,5 +1,7 @@
 package br.com.vendas;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import br.com.vendas.domain.entity.Cliente;
+import br.com.vendas.domain.entity.Pedido;
 import br.com.vendas.domain.repository.ClientesRepository;
+import br.com.vendas.domain.repository.PedidoRepository;
 
 @SpringBootApplication
 public class Application {
@@ -104,7 +108,10 @@ public class Application {
     }*/
     
     @Bean
-    public CommandLineRunner init(@Autowired ClientesRepository clientes) {
+    public CommandLineRunner init(
+            @Autowired ClientesRepository clientes,
+            @Autowired PedidoRepository pedidos
+            ) {
         return args -> {
             System.out.println("========== Salva ==========");
             Cliente cliente = new Cliente();
@@ -114,6 +121,19 @@ public class Application {
             
             boolean existe = clientes.existsByNome("Andreia");
             System.out.println("Existe um cliente com esse nome, Andreia? : "+existe);
+            
+            Pedido p = new Pedido();
+            p.setCliente(cliente);
+            p.setDataPedido(LocalDate.now());
+            p.setTotal(BigDecimal.valueOf(100));
+            
+            pedidos.save(p);
+              
+            Cliente cli = clientes.findClienteFetchPedidos(cliente.getId());
+            System.out.println(cli);
+            System.out.println(cli.getPedidos());
+            
+            
             
             /*System.out.println("========== Lista ==========");
             List<Cliente> todos = clientes.findAll();
